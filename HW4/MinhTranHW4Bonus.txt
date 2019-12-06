@@ -1,0 +1,6 @@
+Bonus question 2:
+Question 2,3 and 4 are already in compact forms
+Question 1: compacted to two lines
+g = TinkerGraph.open().traversal()
+g.addV("course").property(id, "CS420").as('a').addV("course").property(id, "CS220").as('b').addV("course").property(id, "CS201").as('c').addV("course").property(id, "CS101").as('d').addV("course").property(id, "CS334").as('e').addV("course").property(id, "CS681").as('f').addV("course").property(id, "CS400").as('g').addV("course").property(id, "CS526").as('h').addE("reqPrereq").from('a').to('b').property(id,"CS420CS220v1").addE("isCoreq").from('a').to('b').property(id,"CS420CS220v2").addE("reqPrereq").from('b').to('c').property(id,"CS220CS201").addE("reqPrereq").from('c').to('d').property(id, "CS201CS101").addE("reqPrereq").from('e').to('c').property(id, "CS334CS201").addE("reqPrereq").from('f').to('e').property(id, "CS681CS334").addE("reqPrereq").from('g').to('e').property(id, "CS400CS334").addE("reqPrereq").from('h').to('g').property(id, "CS526CS400v1").addE("isCoreq").from('h').to('g').property(id, "CS526CS400v2").next()
+

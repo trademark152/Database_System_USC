@@ -1,0 +1,66 @@
+Question 1:
+The steps are explained below:
+•	Open an instance of TinkerGraph by TinkerGraph.open()
+•	Create a traversal g by graph.traversal()
+•	Create each vertice with label "course" and id as "courseName"
+•	Create each edge with label "reqPrereq" or "isCoreq" and id as"couseName1courseName2"
+The query is:
+graph = TinkerGraph.open()
+g = graph.traversal()
+CS420 = g.addV("course").property(id, "CS420").next()
+CS220 = g.addV("course").property(id, "CS220").next()
+CS201 = g.addV("course").property(id, "CS201").next()
+CS101 = g.addV("course").property(id, "CS101").next()
+CS334 = g.addV("course").property(id, "CS334").next()
+CS681 = g.addV("course").property(id, "CS681").next()
+CS400 = g.addV("course").property(id, "CS400").next()
+CS526 = g.addV("course").property(id, "CS526").next()
+
+g.addE("reqPrereq").from(CS420).to(CS220).property(id, "CS420CS220v1").next()
+g.addE("isCoreq").from(CS420).to(CS220).property(id, "CS420CS220v2").next()
+g.addE("reqPrereq").from(CS220).to(CS201).property(id, "CS220CS201").next()
+g.addE("reqPrereq").from(CS201).to(CS101).property(id, "CS201CS101").next()
+g.addE("reqPrereq").from(CS334).to(CS201).property(id, "CS334CS201").next()
+g.addE("reqPrereq").from(CS681).to(CS334).property(id, "CS681CS334").next()
+g.addE("reqPrereq").from(CS400).to(CS334).property(id, "CS400CS334").next()
+g.addE("reqPrereq").from(CS526).to(CS400).property(id, "CS526CS400v1").next()
+g.addE("isCoreq").from(CS526).to(CS400).property(id, "CS526CS400v2").next()
+
+Question 2:
+The steps of the chaining command are explained below:
+•	Select all nodes of g by <g.V()>, aliasing as "a"
+•	Use <.out()> to select all nodes stepping outward from "a", aliasing as "b"
+•	Use groupCount().by(select("a","b")) to group by count of each possible paring "a"-"b", only the doubly connected pairs will show up twice in the list.
+•	Use <.unfold()> to unroll all the results into linear form
+•	Filter by select "values" of number of apperance of each previous pairings "a"-"b" that is greater than 1 (or equal to 2)
+•	The result will show up as [a:v[CS526], b:v[CS400]] = 2; use select(keys) to just display the double-connected nodes.
+The query is:
+g.V().as("a").out().as("b").groupCount().by(select("a","b")).unfold().filter(select(values).is(gt(1))).select(keys)
+
+Question 3:
+The steps of the chaining command are explained below:
+•	Filter out the node to explore the max depth by <g.V(CS526)>
+•	Insert <.as('exclude')> to later remove the origin from the final results
+•	Repeat the command <__.out('reqPrereq')> to recursively explore vertices pointing outward from the source, which is continuously updated (from original CS526 to "parent" of CS526 or in other words, courses that CS526 requires pre-requisite).
+•	Use <.emit()> to display all returned results.
+•	Use <.path()> to display all monotonically growing paths from the original vertex (like a depth-limited depth first search)
+•	Use <.order().by(count(local), Order.decr)> to order the previous generated paths by length in the decreasing order
+•	Use <limit(1)> to limit the results to the first path, which has the largest length to sufficiently cover all pre-requisite courses.
+•	Use <.unfold()> to unroll all the results into linear form
+•	Finally, insert <.where(neq('exclude'))> to exclude the origin from final results
+The query is:
+g.V(CS526).as('exclude').repeat(__.out('reqPrereq')).emit().path().order().by(count(local),Order.decr).limit(1).unfold().where(neq('exclude'))
+
+Question 4:
+The steps of the chaining command are explained below:
+•	Filter out the node to explore the max depth by <g.V(CS101)>
+•	Repeat the command <__.in()> to recursively explore vertices pointing to the source, which is continuously updated (from original CS101 to "children" of CS101 or in other words, courses that CS101 are pre-requisite). CS420 and CS526 appears twice in the returned result because they are doubly connected to the parent.
+•	Use <.emit()> to display all returned results.
+•	Use <.path()> to display all monotonically growing paths from the original vertex (like a depth-limited depth first search)
+•	Use <.count(local)> to count the length of each path in the previous result
+•	At the end, use <.max()> to get the length the the longest path, which is also the maximum depth starting from a given node, which is also the total count of the longest sequence of courses that can be taken after having completed a prereq course.
+The query is:
+g.V(CS101).repeat(__.in()).emit().path().count(local).max()
+
+
+

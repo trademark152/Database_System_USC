@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+<Document>
+
+<Style id="z1">
+<IconStyle><Icon><href>http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png</href></Icon></IconStyle>
+</Style>
+
+<Placemark><name>uscConvexHull</name>
+    <Polygon>
+      <extrude>1</extrude>
+      <altitudeMode>relativeToGround</altitudeMode>
+      <outerBoundaryIs>
+        <LinearRing>
+          <coordinates>
+            -118.295325,34.020872,100 
+            -118.289135,34.020714,100 
+            -118.282856,34.021777,100 
+            -118.281721,34.030199,100 
+            -118.28411,34.0293168,100 
+            -118.292094,34.023566,100
+	    -118.295325,34.020872,100
+          </coordinates>
+        </LinearRing>
+      </outerBoundaryIs>
+    </Polygon>
+</Placemark>
+
+<Placemark> 
+ <LineString>
+  <coordinates>
+   -118.28411,34.0293168,0. 
+   -118.281721,34.030199,0.
+  </coordinates>
+ </LineString>
+ <Style> 
+  <LineStyle>  
+   <color>#ff0000ff</color>
+   <gx:physicalWidth>30</gx:physicalWidth>
+  </LineStyle> 
+ </Style>
+</Placemark>
+
+<Placemark> 
+<LineString>
+  <coordinates>
+   -118.28411,34.0293168,0. 
+   -118.285519,34.026933,0. 
+  </coordinates>
+ </LineString>
+<Style> 
+  <LineStyle>  
+   <color>#ff0000ff</color>
+   <gx:physicalWidth>30</gx:physicalWidth>
+  </LineStyle> 
+ </Style>
+</Placemark>
+
+<Placemark> 
+<LineString>
+  <coordinates>
+   -118.28411,34.0293168,0. 
+   -118.286634,34.024168,0.
+  </coordinates>
+ </LineString>
+<Style> 
+  <LineStyle>  
+   <color>#ff0000ff</color>
+   <gx:physicalWidth>30</gx:physicalWidth>
+  </LineStyle> 
+ </Style>
+</Placemark>
+
+<Placemark><name>senatorHome</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.28411,34.0293168</coordinates></Point>
+</Placemark>
+
+<Placemark><name>oldApt</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.295325,34.020872</coordinates></Point>
+</Placemark>
+
+<Placemark><name>uspsOffice</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.292094,34.023566</coordinates></Point>
+</Placemark>
+
+<Placemark><name>dentalCenter</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.286634,34.024168</coordinates></Point>
+</Placemark>
+
+<Placemark><name>leaveyLibrary</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.282856,34.021777</coordinates></Point>
+</Placemark>
+
+<Placemark><name>regalTrojan</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.281721,34.030199</coordinates></Point>
+</Placemark>
+
+<Placemark><name>tennisCourt</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.290583,34.023163</coordinates></Point>
+</Placemark>
+
+<Placemark><name>uscVillage</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.285519,34.026933</coordinates></Point>
+</Placemark>
+
+<Placemark><name>viterbiCorner</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.289135,34.020714</coordinates></Point>
+</Placemark>
+
+<Placemark><name>convexHull1</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.295325,34.020872</coordinates></Point>
+</Placemark>
+
+<Placemark><name>convexHull2</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.289135,34.020714</coordinates></Point>
+</Placemark>
+
+<Placemark><name>convexHull3</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.282856,34.021777</coordinates></Point>
+</Placemark>
+
+<Placemark><name>convexHull4</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.281721,34.030199</coordinates></Point>
+</Placemark>
+
+<Placemark><name>convexHull5</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.28411,34.0293168</coordinates></Point>
+</Placemark>
+
+<Placemark><name>convexHull6</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.292094,34.023566</coordinates></Point>
+</Placemark>
+
+</Document></kml>

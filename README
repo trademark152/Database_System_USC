@@ -1,0 +1,17 @@
+Homework solutions for CSCI585 (Database System) at University of Southern California.
+
+1) HW1: ER Diagram
+I create an ER diagram to represent a simple forum
+
+2) HW2: Google Cloud SQL
+I use Google cloud services to run queries on SQL.
+
+3) HW3: Geospatial data handling
+I create (generate/sample) spatial data, visualize it, do queries on it, and visualize the query results
+
+4) HW4: Graph Traversal
+I use Gremlin TinkerPop to perform graph Traversal
+
+5) HW5: Machine Learning
+I carry out a supervised learning framework to train a neural network on Google's Colab to differentiate between a cat pic and dog pic, then use the
+trained network to classify a new (cat-like or dog-like) pic into a cat or dog.
